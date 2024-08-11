@@ -4,8 +4,9 @@ import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/auth/login/LoginPage";
 import SignUpPage from "./pages/auth/signup/SignUpPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import {Dashboard} from "./pages/dashboard/dashboard";
 
-import Sidebar from "./components/common/SideBar";
+import Sidebar from "./components/common/Sidebar";
 import RightPanel from "./components/common/RightPanel";
 
 import { Toaster } from "react-hot-toast";
@@ -49,6 +50,7 @@ function App() {
 				<Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/' />} />
 				<Route path='/signup' element={!authUser ? <SignUpPage /> : <Navigate to='/' />} />
 				<Route path='/profile/:username' element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />
+				<Route path='/dashboard' element={authUser ? <Dashboard /> : <Navigate to='/dashboard' />} />
 			</Routes>
 			{authUser && <RightPanel />}
 			<Toaster />
@@ -56,4 +58,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
